@@ -1,0 +1,204 @@
+
+<!-- Created by Nurkhat Assan -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieVerse - Profile</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="page-layout">
+    <header id="main-header">
+        <nav class="nav-menu">
+            <div class="logo">MovieVerse</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Main Menu</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="movie.html">Search / Movie</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
+            </ul>
+            <button
+                type="button"
+                class="theme-toggle"
+                id="change-background"
+                aria-label="Change background color">
+                Change background
+            </button>
+        </nav>
+    </header>
+
+    <aside class="sidebar">
+        <h2>Profile</h2>
+        <ul>
+            <li><a href="profile.html">My Profile</a></li>
+            <li><a href="#ratings">Ratings</a></li>
+            <li><a href="#settings">Settings</a></li>
+            <li><a href="#subscription-feature">Subscription</a></li>
+        </ul>
+    </aside>
+
+    <main>
+        <div class="container">
+            <section class="profile-header">
+                <img src="images/profile.jpg" alt="Profile Picture"
+                     class="profile-img">
+                <div class="profile-info">
+                    <h1>Kairat_Nurtas</h1>
+                    <p class="email">kairat67@gmail.com</p>
+                </div>
+            </section>
+
+            <hr class="divider">
+
+            <section id="ratings">
+                <h2 class="section-title">Recently Rated Movies</h2>
+                <div class="table-wrapper">
+                    <table class="ratings-table">
+                        <thead>
+                            <tr>
+                                <th>Movie Title</th>
+                                <th>Genre</th>
+                                <th>Date Rated</th>
+                                <th>User Rating</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Avatar: Fire and Ash</td>
+                                <td>Sci-Fi / Adventure</td>
+                                <td>2026-09-12</td>
+                                <td>★ 9.5 / 10</td>
+                            </tr>
+                            <tr>
+                                <td>Mickey 17</td>
+                                <td>Sci-Fi / Mystery</td>
+                                <td>2026-09-10</td>
+                                <td>★ 8.8 / 10</td>
+                            </tr>
+                            <tr>
+                                <td>Mission: Impossible - The Final Reckoning</td>
+                                <td>Action / Spy</td>
+                                <td>2026-09-05</td>
+                                <td>★ 9.0 / 10</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="settings">
+                <h2 class="section-title">Profile Settings</h2>
+                <form id="contact-form" class="form-card">
+                    <div class="form-group">
+                        <label for="username">Display Username:</label>
+                        <input type="text" id="username" name="username"
+                               value="Kairat_Nurtas">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email"
+                               value="kairat67@gmail.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fav-genre">Favorite Genre:</label>
+                        <select id="fav-genre" name="fav-genre">
+                            <option value="action">Action</option>
+                            <option value="scifi">Sci-Fi</option>
+                            <option value="drama">Drama</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bio">Bio / Status:</label>
+                        <textarea id="bio" name="bio" rows="3">Cinema enthusiast and student at AITU.</textarea>
+                    </div>
+
+                    <button type="submit" class="btn">Update Profile</button>
+                </form>
+            </section>
+
+            <!-- TASK 3: Popup Subscription -->
+            <section id="subscription-feature" style="margin-top: 35px;">
+                <h2 class="section-title">MovieVerse Subscription</h2>
+                <p>Join MovieVerse by completing the subscription form.</p>
+
+                <button type="button" class="btn" id="open-subscription">
+                    Subscribe Now
+                </button>
+            </section>
+
+            <!-- TASK 1: Form Validation -->
+            <div id="subscription-popup" aria-hidden="true"
+                 style="display: none; position: fixed; inset: 0;
+                 z-index: 1000; background: rgba(0,0,0,0.8);
+                 justify-content: center; align-items: center;
+                 padding: 15px; overflow-y: auto;">
+
+                <div role="dialog" aria-modal="true"
+                     aria-labelledby="subscription-title"
+                     style="position: relative; width: 100%;
+                     max-width: 430px; max-height: 90vh;
+                     overflow-y: auto; padding: 25px;
+                     border-radius: 12px; background: #161f30;
+                     color: #f8fafc;">
+
+                    <button type="button" id="close-subscription"
+                            aria-label="Close popup"
+                            style="position: absolute; top: 8px; right: 12px;
+                            border: 0; background: transparent;
+                            color: inherit; font-size: 28px;
+                            cursor: pointer;">
+                        &times;
+                    </button>
+
+                    <h2 id="subscription-title">Join MovieVerse</h2>
+                    <p>Enter your details below.</p>
+
+                    <form id="subscription-form" novalidate>
+                        <div class="form-group">
+                            <label for="subscription-email">Email Address:</label>
+                            <input type="email" id="subscription-email"
+                                   name="subscription-email"
+                                   placeholder="name@example.com"
+                                   autocomplete="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subscription-password">Password:</label>
+                            <input type="password" id="subscription-password"
+                                   name="subscription-password"
+                                   placeholder="At least 8 characters"
+                                   autocomplete="new-password" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirm-password">Confirm Password:</label>
+                            <input type="password" id="confirm-password"
+                                   name="confirm-password"
+                                   placeholder="Repeat your password"
+                                   autocomplete="new-password" required>
+                        </div>
+
+                        <p id="form-message" role="status"
+                           aria-live="polite"></p>
+
+                        <button type="submit" class="btn">
+                            Validate and Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>MovieVerse &copy; 2026. Authors: Nurkhat Assan, Daurenbek Anuar.</p>
+    </footer>
+</div>
+    <script src="js/assignment.js"></script>
+</body>
+</html>
